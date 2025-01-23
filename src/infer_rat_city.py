@@ -30,7 +30,7 @@ from run_traccuracy import compute_metrics
 import pprint
 import torch
 from typing import List, Mapping
-
+import pandas as pd
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -50,8 +50,7 @@ def infer(yaml_configs_file_name: str):
     print("+" * 10)
     pp.pprint(args)
 
-    test_pt_file_name = args["test_pt_file_name"]
-    test_man_track_file_name = args["test_man_track_file_name"]
+    test_file_name = args["test_file_name"]
     num_nearest_neighbours = args["num_nearest_neighbours"]
     max_edge_distance = args["max_edge_distance"]
     direction_candidate_graph = args["direction_candidate_graph"]
@@ -78,23 +77,12 @@ def infer(yaml_configs_file_name: str):
     # Step 1 - build test candidate graph
     # ++++++++
 
-    test_list = torch.load(
-        test_pt_file_name, weights_only=True, map_location=torch.device("cpu")
-    )
+    test_array = pd.read_csv(test_file_name, sep=' ', header=0)
+    test_array = test_array.values
 
-    (
-        test_array,
-        test_old_id_new_id_dictionary,
-        test_new_id_velocity_dictionary,
-        test_new_id_cell_type_dictionary,
-    ) = convert_to_numpy_array(test_list, test_image_shape, use_velocity, use_cell_type)
-
-    with open(results_dir_name + "/jsons/old_to_new_mapping.json", "w") as f:
-        json.dump(test_old_id_new_id_dictionary, f)
-
-    test_array = add_parent_id(
-        test_man_track_file_name, test_old_id_new_id_dictionary, test_array
-    )
+    test_array[:, 0] = test_array[:, 0]+1
+    test_array[:, -1] = test_array[:, -1] + 1
+    test_array[:, 3] = test_array[:, 3] * 2
 
     np.savetxt(
         fname=results_dir_name + "/gt-detections.csv",
@@ -310,7 +298,7 @@ if __name__ == "__main__":
     # args = parser.parse_args()
     # infer(yaml_configs_file_name=args.yaml_configs_file_name)
 
-    infer(yaml_configs_file_name='../experiments/configs_infer.yaml')
+    infer(yaml_configs_file_name='../experiments/configs_infer_rat_city.yaml')
 
 
 
