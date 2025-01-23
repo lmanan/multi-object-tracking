@@ -69,7 +69,7 @@ def compute_metrics(
         gt_data=gt_data,
         pred_data=pred_data,
         matcher=CTCMatcher(),
-        metrics=[CTCMetrics(), DivisionMetrics()],
+        metrics=[CTCMetrics()],       # DivisionMetrics()
     )
     pp.pprint(ctc_results)
 
