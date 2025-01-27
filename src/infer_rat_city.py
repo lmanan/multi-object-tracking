@@ -80,10 +80,6 @@ def infer(yaml_configs_file_name: str):
     test_array = pd.read_csv(test_file_name, sep=' ', header=0)
     test_array = test_array.values
 
-    test_array[:, 0] = test_array[:, 0]+1
-    test_array[:, -1] = test_array[:, -1] + 1
-    test_array[:, 3] = test_array[:, 3] * 2
-
     np.savetxt(
         fname=results_dir_name + "/gt-detections.csv",
         X=test_array,
