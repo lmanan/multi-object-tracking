@@ -1,0 +1,1 @@
+{"max_edge_distance": 0.2, "max_children": 1.0, "edge_selection_cost": -20.0, "appear_cost": 30, "division_cost": null, "distance_cost": 1, "iou_cost": null}
