@@ -4,7 +4,7 @@ num_nearest_neighbours: 3
 max_edge_distance: null
 direction_candidate_graph: "forward"
 dT: 1
-test_image_shape: [2000, 2000]
+test_image_shape: [100, 100]
 pin_nodes: true
 use_velocity: False
 use_cell_type: False
