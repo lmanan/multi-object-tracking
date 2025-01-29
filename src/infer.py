@@ -1,6 +1,5 @@
 from yaml import load, Loader
 import json
-import jsonargparse
 import os
 import sys
 import numpy as np
@@ -8,15 +7,13 @@ import networkx as nx
 from utils import (
     get_recursion_limit,
     save_ilp_result,
-    add_hyper_edges,
     add_gt_edges_to_graph,
     add_costs,
     add_constraints,
-    expand_position,
     add_app_disapp_attributes,
     convert_to_one_hot,
     convert_to_numpy_array,
-    add_parent_id
+    add_parent_id,
 )
 
 from motile_toolbox.candidate_graph import (
@@ -29,7 +26,6 @@ from saving_utils import save_result
 from run_traccuracy import compute_metrics
 import pprint
 import torch
-from typing import List, Mapping
 
 
 pp = pprint.PrettyPrinter(indent=4)
@@ -214,20 +210,9 @@ def infer(yaml_configs_file_name: str):
     # Step 3 - traccuracy numbers
     # ++++++++
 
-    gt_segmentation = np.zeros(
-        (test_t_max + 1, *tuple(test_image_shape)), dtype=np.uint64
-    )
-    for node, attrs in test_candidate_graph_initial.nodes.items():
-        t, id_ = node.split("_")
-        t, id_ = int(t), int(id_)
-        position = attrs[NodeAttr.POS.value]
-        gt_segmentation[t] = expand_position(
-            data=gt_segmentation[t], position=position, id_=id_
-        )
-
     new_mapping, res_track, tracked_masks, tracked_graph = save_result(
         solution_nx_graph=graph_to_nx(solution_graph),
-        segmentation_shape=gt_segmentation.shape,
+        segmentation_shape=None,  # gt_segmentation.shape,
         output_tif_dir_name=results_dir_name,
         write_tifs=write_tifs,
     )
@@ -295,9 +280,9 @@ def infer(yaml_configs_file_name: str):
             test_gt_track_graph.nodes[node]["x"] = int(x)
 
     compute_metrics(
-        gt_segmentation=gt_segmentation,
+        gt_segmentation=None,  # gt_segmentation,
         gt_nx_graph=graph_to_nx(test_gt_track_graph),
-        predicted_segmentation=tracked_masks,
+        predicted_segmentation=None,  # tracked_masks,
         pred_nx_graph=tracked_graph,
         results_dir_name=results_dir_name,
     )
@@ -310,8 +295,4 @@ if __name__ == "__main__":
     # args = parser.parse_args()
     # infer(yaml_configs_file_name=args.yaml_configs_file_name)
 
-    infer(yaml_configs_file_name='../experiments/configs_infer.yaml')
-
-
-
-
+    infer(yaml_configs_file_name="../experiments/configs_infer.yaml")
