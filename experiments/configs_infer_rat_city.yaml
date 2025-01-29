@@ -9,6 +9,6 @@ pin_nodes: true
 use_velocity: False
 use_cell_type: False
 write_tifs: false
-ssvm_weights_array: [1, 0, 1, 0, 0, 1, 0, 1] # first two for edge distance, then for cell type (optional), next two for node appearance, next two for node disappearance
+ssvm_weights_array: [1, 0, 0, 1, 0, 1] # first two for edge distance, then for cell type (optional), next two for node appearance, next two for node disappearance
 results_dir_name: 'results-test'
 whitening: true
