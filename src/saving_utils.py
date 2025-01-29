@@ -14,21 +14,10 @@ def save_result(
     output_tif_dir_name: str,
     write_tifs: bool = False,
 ):
-    """save_result.
-    This function produces the new ids once the solution graph is available.
-
-    Parameters
-    ----------
-    solution_nx_graph : nx.DiGraph
-        solution_nx_graph
-    segmentation_shape :
-        segmentation_shape
-    output_tif_dir_name : str
-        output_tif_dir_name
-    write_tifs : bool
-        write_tifs
-    """
-    tracked_masks = np.zeros(segmentation_shape, dtype=np.uint16)
+    if segmentation_shape is not None:
+        tracked_masks = np.zeros(segmentation_shape, dtype=np.uint16)
+    else:
+        tracked_masks = None
     new_mapping = {}  # <t_id> in segmentation mask: id in tracking mask
     res_track = (
         {}
@@ -48,23 +37,23 @@ def save_result(
                         t_out
                     )  # include the end time for this tracklet
                 position_in_node = solution_nx_graph.nodes[in_node][NodeAttr.POS.value]
-
-                tracked_masks[t_in] = expand_position(
-                    data=tracked_masks[t_in],
-                    position=position_in_node,
-                    id_=new_mapping[in_node],
-                )
+                if tracked_masks is not None:
+                    tracked_masks[t_in] = expand_position(
+                        data=tracked_masks[t_in],
+                        position=position_in_node,
+                        id_=new_mapping[in_node],
+                    )
                 new_mapping[out_node] = new_mapping[in_node]
 
                 position_out_node = solution_nx_graph.nodes[out_node][
                     NodeAttr.POS.value
                 ]
-
-                tracked_masks[t_out] = expand_position(
-                    data=tracked_masks[t_out],
-                    position=position_out_node,
-                    id_=new_mapping[out_node],
-                )
+                if tracked_masks is not None:
+                    tracked_masks[t_out] = expand_position(
+                        data=tracked_masks[t_out],
+                        position=position_out_node,
+                        id_=new_mapping[out_node],
+                    )
 
             else:
                 # i.e. start of a new edge
@@ -76,15 +65,17 @@ def save_result(
                 position_out_node = solution_nx_graph.nodes[out_node][
                     NodeAttr.POS.value
                 ]
-
-                tracked_masks[t_in] = expand_position(
-                    data=tracked_masks[t_in], position=position_in_node, id_=id_counter
-                )
-                tracked_masks[t_out] = expand_position(
-                    data=tracked_masks[t_out],
-                    position=position_out_node,
-                    id_=id_counter,
-                )
+                if tracked_masks is not None:
+                    tracked_masks[t_in] = expand_position(
+                        data=tracked_masks[t_in],
+                        position=position_in_node,
+                        id_=id_counter,
+                    )
+                    tracked_masks[t_out] = expand_position(
+                        data=tracked_masks[t_out],
+                        position=position_out_node,
+                        id_=id_counter,
+                    )
                 id_counter += 1
         elif num_out_edges == 2:
             out_edge1, out_edge2 = solution_nx_graph.out_edges(in_node)
@@ -101,11 +92,12 @@ def save_result(
 
                 position_in_node = solution_nx_graph.nodes[in_node][NodeAttr.POS.value]
 
-                tracked_masks[t_in] = expand_position(
-                    data=tracked_masks[t_in],
-                    position=position_in_node,
-                    id_=new_mapping[in_node],
-                )
+                if tracked_masks is not None:
+                    tracked_masks[t_in] = expand_position(
+                        data=tracked_masks[t_in],
+                        position=position_in_node,
+                        id_=new_mapping[in_node],
+                    )
 
                 if out_node1 not in new_mapping:
                     new_mapping[out_node1] = id_counter
@@ -113,11 +105,12 @@ def save_result(
                         NodeAttr.POS.value
                     ]
 
-                    tracked_masks[t_out1] = expand_position(
-                        data=tracked_masks[t_out1],
-                        position=position_out_node1,
-                        id_=id_counter,
-                    )
+                    if tracked_masks is not None:
+                        tracked_masks[t_out1] = expand_position(
+                            data=tracked_masks[t_out1],
+                            position=position_out_node1,
+                            id_=id_counter,
+                        )
 
                     res_track[id_counter] = ([t_out1], new_mapping[in_node])
                     id_counter += 1
@@ -126,12 +119,12 @@ def save_result(
                     position_out_node2 = solution_nx_graph.nodes[out_node2][
                         NodeAttr.POS.value
                     ]
-
-                    tracked_masks[t_out2] = expand_position(
-                        data=tracked_masks[t_out2],
-                        position=position_out_node2,
-                        id_=id_counter,
-                    )
+                    if tracked_masks is not None:
+                        tracked_masks[t_out2] = expand_position(
+                            data=tracked_masks[t_out2],
+                            position=position_out_node2,
+                            id_=id_counter,
+                        )
                     res_track[id_counter] = ([t_out2], new_mapping[in_node])
                     id_counter += 1
             else:
@@ -139,10 +132,12 @@ def save_result(
                 new_mapping[in_node] = id_counter
 
                 position_in_node = solution_nx_graph.nodes[in_node][NodeAttr.POS.value]
-
-                tracked_masks[t_in] = expand_position(
-                    data=tracked_masks[t_in], position=position_in_node, id_=id_counter
-                )
+                if tracked_masks is not None:
+                    tracked_masks[t_in] = expand_position(
+                        data=tracked_masks[t_in],
+                        position=position_in_node,
+                        id_=id_counter,
+                    )
 
                 id_counter += 1
                 if out_node1 not in new_mapping:
@@ -150,12 +145,12 @@ def save_result(
                     position_out_node1 = solution_nx_graph.nodes[out_node1][
                         NodeAttr.POS.value
                     ]
-
-                    tracked_masks[t_out1] = expand_position(
-                        data=tracked_masks[t_out1],
-                        position=position_out_node1,
-                        id_=id_counter,
-                    )
+                    if tracked_masks is not None:
+                        tracked_masks[t_out1] = expand_position(
+                            data=tracked_masks[t_out1],
+                            position=position_out_node1,
+                            id_=id_counter,
+                        )
 
                     res_track[id_counter] = ([t_out1], new_mapping[in_node])
                     id_counter += 1
@@ -164,12 +159,12 @@ def save_result(
                     position_out_node2 = solution_nx_graph.nodes[out_node2][
                         NodeAttr.POS.value
                     ]
-
-                    tracked_masks[t_out2] = expand_position(
-                        data=tracked_masks[t_out2],
-                        position=position_out_node2,
-                        id_=id_counter,
-                    )
+                    if tracked_masks is not None:
+                        tracked_masks[t_out2] = expand_position(
+                            data=tracked_masks[t_out2],
+                            position=position_out_node2,
+                            id_=id_counter,
+                        )
 
                     res_track[id_counter] = ([t_out2], new_mapping[in_node])
                     id_counter += 1
@@ -185,9 +180,10 @@ def save_result(
             res_track[id_counter] = ([t], 0)
             new_mapping[node] = id_counter
             position_node = solution_nx_graph.nodes[node][NodeAttr.POS.value]
-            tracked_masks[t] = expand_position(
-                data=tracked_masks[t], position=position_node, id_=id_counter
-            )
+            if tracked_masks is not None:
+                tracked_masks[t] = expand_position(
+                    data=tracked_masks[t], position=position_node, id_=id_counter
+                )
 
             id_counter += 1
 
@@ -201,16 +197,21 @@ def save_result(
 
     # write tifs
     if write_tifs:
-        for i in range(tracked_masks.shape[0]):
-            tifffile.imwrite(
-                Path(output_tif_dir_name) / ("mask" + str(i).zfill(3) + ".tif"),
-                tracked_masks[i].astype(np.uint16),
-            )
+        if tracked_masks is not None:
+            for i in range(tracked_masks.shape[0]):
+                tifffile.imwrite(
+                    Path(output_tif_dir_name) / ("mask" + str(i).zfill(3) + ".tif"),
+                    tracked_masks[i].astype(np.uint16),
+                )
     # write man_track.json
     with open(output_tif_dir_name + "/jsons/res_track.json", "w") as f:
         json.dump(res_track, f)
 
     print(f"Final id counter is {id_counter}")
+
+    # write the <t_id --> new_tracklet) in a file
+    with open(output_tif_dir_name + "/jsons/tracklet.json", "w") as f:
+        json.dump(new_mapping, f)
 
     tracked_graph = nx.DiGraph()
     for k, v in new_mapping.items():
