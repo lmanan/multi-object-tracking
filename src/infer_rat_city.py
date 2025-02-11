@@ -276,3 +276,4 @@ if __name__ == "__main__":
     # infer(yaml_configs_file_name=args.yaml_configs_file_name)
 
     infer(yaml_configs_file_name="../experiments/configs_infer_rat_city.yaml")
+

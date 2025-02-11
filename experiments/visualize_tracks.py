@@ -1,6 +1,6 @@
 import jsonargparse
-from motile_plugin.data_model.solution_tracks import SolutionTracks
-from motile_plugin.data_views.views_coordinator.tracks_viewer import TracksViewer
+from motile_tracker.data_model.solution_tracks import SolutionTracks
+from motile_tracker.data_views.views_coordinator.tracks_viewer import TracksViewer
 from glob import glob
 import tifffile
 import napari
@@ -138,3 +138,5 @@ if __name__ == "__main__":
         ilp_csv_file_name,
         visualize_which,
     )
+
+    # python visualize_tracks.py - -yaml_configs_file_name visualize_configs.yaml

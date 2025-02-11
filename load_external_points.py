@@ -20,7 +20,7 @@ _themes["dark"].font_size = "18pt"
 
 
 # Load Zarr datasets
-csv_path = "annotation.txt"  # replace with your points file
+csv_path = "annotation_yolo.txt"  # replace with your points file
 dataframe = pd.read_csv(csv_path, sep=" ")
 
 position_columns = ["frame_id", "y", "x"]  # replace with your position columns
@@ -39,3 +39,11 @@ viewer.window.add_dock_widget(widget, name="Motile")
 
 # Start the Napari GUI event loop
 napari.run()
+
+
+# sudo mount -o rw,hard,bg,nolock,nfsvers=4.1,sec=krb5 nrs.hhmi.org:/nrs/ /nrs/
+# https://funkelab.github.io/motile_tracker/getting_started.html#installation
+# conda create -n motile-tracker python=3.10
+# conda activate motile-tracker
+# conda install -c conda-forge -c funkelab -c gurobi ilpy
+# pip install motile-tracker
