@@ -74,6 +74,20 @@ AttributeError: 'Env' object has no attribute 'getParamInfo'. Did you mean: '_ge
 (motile-env) [Login1 - allierc@e02u30]~/Py/GNN-tracking>
 
     
-bsub -Is -n 8 python ../src/infer.py --yaml_configs_file_name 'configs_infer.yaml'
-    
+bsub -Is -n 8 python ../src/infer.py --yaml_configs_file_name 'configs_infer.yaml' 
 
+
+
+pip install --upgrade motile-tracker
+
+
+    
+viewer.layers[-1].set_point_size(20)
+
+
+settings Feb 13
+
+max distance 250
+edge selction -200
+appear 3000
+distance

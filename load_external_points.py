@@ -24,15 +24,16 @@ csv_path = "annotation_yolo.txt"  # replace with your points file
 dataframe = pd.read_csv(csv_path, sep=" ")
 
 position_columns = ["frame_id", "y", "x"]  # replace with your position columns
-
 positions = dataframe[position_columns].to_numpy()
-positions[:,1:3] = positions[:,1:3]*20
+positions[:,1:2] = positions[:,1:2] * 1000		# y axis
+positions[:,2:3] = positions[:,2:3] * 1100		# x axis
+positions[:,0] = positions[:,0]-1
 
 # Initialize Napari viewer
 viewer = napari.Viewer()
 
 # Add image and label layers to the viewer
-viewer.add_points(positions, name="points", size=1)
+viewer.add_points(positions, name="points", size=50)
 # Add your custom widget
 widget = MainApp(viewer)
 viewer.window.add_dock_widget(widget, name="Motile")
