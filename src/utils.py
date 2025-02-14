@@ -189,8 +189,8 @@ def add_gt_edges_to_graph(
 
 def add_costs(
     solver: motile.Solver,
-    use_velocity: bool,
-    use_cell_type: bool,
+    use_velocity: bool = None,
+    use_cell_type: bool = None,
     mean_edge_distance: float = None,
     std_edge_distance: float = None,
     mean_node_embedding_distance: float = None,
