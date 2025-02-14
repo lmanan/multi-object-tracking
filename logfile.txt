@@ -1,0 +1,93 @@
+conda create -n motile-env python==3.10
+conda activate motile-env
+pip install jsonargparse torch natsort
+conda install -c conda-forge -c funkelab -c gurobi ilpy
+conda install scip
+pip install git+https://github.com/lmanan/motile_toolbox.git
+pip install git+https://github.com/lmanan/motile.git
+pip install git+https://github.com/lmanan/traccuracy.git
+
+add ~./bashrc  
+export GRB_LICENSE_FILE="/home/allierc@hhmi.org/Desktop/licences/gurobi.lic"
+source ~./bashrc 
+
+python ../src/infer.py --yaml_configs_file_name 'configs_infer.yaml'
+
+
+bsub -I bash install.sh
+
+
+import gurobipy as gp
+
+try:
+    # Create a Gurobi environment
+    env = gp.Env(empty=True)
+    env.start()  # Start the environment
+
+    # Print license information
+    print(f"License Expiration: {env.getParamInfo('LicenseExpiration')}")
+    print(f"License ID: {env.getParamInfo('LogFile')}")
+
+except gp.GurobiError as e:
+    print(f"Gurobi Error: {e}")
+    
+    
+for janelia license in ~./bashrc
+
+export GUROBI_HOME="/misc/local/gurobi-12.0.0"
+export PATH="${PATH}:${GUROBI_HOME}/bin"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
+export GRB_LICENSE_FILE="${GUROBI_HOME}/gurobi.lic"
+
+
+{   'dT': 1,                                          # set to 2 for gaps
+    'direction_candidate_graph': 'forward',
+    'max_edge_distance': None,
+    'num_nearest_neighbours': 5,
+    'pin_nodes': True,				      # all nodes exist, for mouse set to False								
+    'results_dir_name': 'results-test',
+    'ssvm_weights_array': [1, 0, 1, 0, 0, 1, 0, 1],   # weights, bias on edge_distance, cell type, apperance bias, disappearance bias
+    'test_image_shape': [2000, 2000],                 # 0-1 scaled to 2000 for evaluation only based IoU  
+    'test_man_track_file_name': '../data/graphs_boids_division_tracking_B/man_track.txt',
+    'test_pt_file_name': '../data/graphs_boids_division_tracking_B/x_list_0.pt',
+    'use_cell_type': True,
+    'use_velocity': True,
+    'whitening': True,
+    'write_tifs': False}			      # blob images
+    
+    
+    
+    
+(motile-env) [Login1 - allierc@e02u30]~/Py/GNN-tracking>bsub -Is python test_gurobi.py 
+This job will be billed to saalfeld
+Job <142350512> is submitted to default queue <interactive>.
+<<Waiting for dispatch ...>>
+<<Starting on e10u01>>
+Set parameter Username
+Set parameter LicenseID to value 501799
+Set parameter GURO_PAR_SPECIAL
+Set parameter TokenServer to value "vm7142.int.janelia.org"
+Traceback (most recent call last):
+  File "/groups/saalfeld/home/allierc/Py/GNN-tracking/test_gurobi.py", line 9, in <module>
+    print(f"License Expiration: {env.getParamInfo('LicenseExpiration')}")
+AttributeError: 'Env' object has no attribute 'getParamInfo'. Did you mean: '_getParamInfo'?
+(motile-env) [Login1 - allierc@e02u30]~/Py/GNN-tracking>
+
+    
+bsub -Is -n 8 python ../src/infer.py --yaml_configs_file_name 'configs_infer.yaml' 
+
+
+
+pip install --upgrade motile-tracker
+
+
+    
+viewer.layers[-1].set_point_size(20)
+
+
+settings Feb 13
+
+max distance 250
+edge selction -200
+appear 3000
+distance
