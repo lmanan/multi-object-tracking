@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b00b2d9d-ad13-41bf-9448-5c03c56ccf86" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/results-test/jsons/ilp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/results-test/jsons/ilp.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/results-test/jsons/res_track.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/results-test/jsons/res_track.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/results-test/jsons/results.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/results-test/jsons/results.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/results-test/jsons/tracklet.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/results-test/jsons/tracklet.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/results-test/track-detections.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/results-test/track-detections.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logfile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/infer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/infer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +29,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/groups/saalfeld/home/allierc/Py/GNN-tracking",
+    "last_opened_file_path": "/groups/saalfeld/home/allierc/Py/multi-object-tracking",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
@@ -63,11 +61,6 @@
           <url>file://$PROJECT_DIR$/test_gurobi.py</url>
           <line>15</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/infer.py</url>
-          <line>199</line>
-          <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/src/infer_rat_city.py</url>
