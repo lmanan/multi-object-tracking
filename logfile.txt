@@ -91,3 +91,8 @@ max distance 250
 edge selction -200
 appear 3000
 distance
+
+python ../src/infer.py --yaml_configs_file_name rat_city_raw.yaml
+
+
+

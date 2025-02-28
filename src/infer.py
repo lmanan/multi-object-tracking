@@ -227,4 +227,9 @@ if __name__ == "__main__":
     parser = jsonargparse.ArgumentParser()
     parser.add_argument("--yaml_configs_file_name", dest="yaml_configs_file_name")
     args = parser.parse_args()
+
+    if args.yaml_configs_file_name==None:
+        args.yaml_configs_file_name = "../experiments/rat_city_raw.yaml"
+
+
     infer(yaml_configs_file_name=args.yaml_configs_file_name)
