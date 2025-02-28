@@ -1,5 +1,7 @@
-im_dir_name: null
+im_dir_name: '../images/train_relabelled'
 gt_segmentation_dir_name: null
-gt_detections_csv_file_name: "../src/results-test/gt-detections.csv"
-ilp_csv_file_name : "../src/results-test/jsons/ilp.csv"
-visualize_which: "predicted"  # "predicted" or "gt"
+gt_detections_csv_file_name: "../results-test/gt-detections.csv"
+ilp_csv_file_name : "../results-test/jsons/ilp.csv"
+visualize_which: "gt"  # "predicted" or "gt"
+scaling_x : 0.5 
+scaling_y: 1.0
