@@ -1,0 +1,10 @@
+test_file_name: "../data/rat_city/YOLO12x/annotation_yolo_with_gt_mapping.txt"
+num_nearest_neighbours: 3
+max_edge_distance: null
+direction_candidate_graph: "forward"
+dT: 1
+pin_nodes: true
+write_tifs: False
+ssvm_weights_array: [1, 0, 0, 1, 0, 1] # first two for edge distance, then for cell type (optional), next two for node appearance, next two for node disappearance
+results_dir_name: 'results-test'
+whitening: True

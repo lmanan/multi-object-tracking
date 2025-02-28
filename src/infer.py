@@ -229,7 +229,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.yaml_configs_file_name==None:
-        args.yaml_configs_file_name = "../experiments/rat_city_raw.yaml"
+        args.yaml_configs_file_name = "../experiments/rat_city_raw_yolo12.yaml"
 
 
     infer(yaml_configs_file_name=args.yaml_configs_file_name)

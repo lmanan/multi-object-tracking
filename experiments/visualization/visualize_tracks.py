@@ -26,7 +26,6 @@ def visualize_tracks(
     This function enables visualizing tracks generated from running the
     `../src/infer.py` script.
     It can also visualize the ground truth tracks.
-    Note, this function must be run with separate 'motile-tracker' environment 
     which contains the 'motile-tracker' plugin.
 
     Parameters
