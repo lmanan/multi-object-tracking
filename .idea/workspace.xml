@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b00b2d9d-ad13-41bf-9448-5c03c56ccf86" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/results-test/jsons/ilp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/results-test/jsons/ilp.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/results-test/jsons/res_track.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/results-test/jsons/res_track.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/results-test/jsons/results.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/results-test/jsons/results.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/results-test/jsons/tracklet.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/results-test/jsons/tracklet.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/results-test/track-detections.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/results-test/track-detections.csv" afterDir="false" />
+    <list default="true" id="de9c5015-a9e0-4e94-bd8c-5d520a1e8358" name="Changes" comment="update README">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,11 +13,31 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main_pany2" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;panyuxin1993&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/lmanan/multi-object-tracking.git&quot;,
+    &quot;accountId&quot;: &quot;6311cf84-120a-41e8-9dd5-3322ee1f48b4&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2oZr6XFb91c4YZRxx4cCWisoCK1" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -29,28 +45,173 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.prepare_rat_city_benchmark_data.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/groups/saalfeld/home/allierc/Py/GNN-tracking",
+    "git-widget-placeholder": "main__pany2__new__data",
+    "last_opened_file_path": "C:/Users/labadmin/PycharmProjects/multi-object-tracking/data/rat_city/YOLO11x",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\labadmin\PycharmProjects\multi-object-tracking\data\rat_city\YOLO11x" />
+      <recent name="C:\Users\labadmin\PycharmProjects\multi-object-tracking\data\rat_city\YOLO12x" />
+      <recent name="C:\Users\labadmin\PycharmProjects\multi-object-tracking\data\rat_city" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/experiments" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\labadmin\PycharmProjects\multi-object-tracking\data\rat_city\YOLO11x" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="prepare_rat_city_benchmark_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="multi-object-tracking" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/prepare_rat_city_benchmark_data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.prepare_rat_city_benchmark_data" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-975db3bf15a3-31b6be0877a2-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.18034.82" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b00b2d9d-ad13-41bf-9448-5c03c56ccf86" name="Changes" comment="" />
+      <changelist id="de9c5015-a9e0-4e94-bd8c-5d520a1e8358" name="Changes" comment="Add README.md explain the data file" />
       <created>1731087763240</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1731087763240</updated>
     </task>
+    <task id="LOCAL-00001" summary="update prepare_rat_city_benchmark_data.py to customize the columns in output file">
+      <option name="closed" value="true" />
+      <created>1739571055668</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1739571055668</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update prepare_rat_city_benchmark_data.py to customize the columns in output file, remove duplicated files. update annotation_yolo_with_gt_mapping.txt">
+      <option name="closed" value="true" />
+      <created>1739571583600</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1739571583600</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update rat city data organization">
+      <option name="closed" value="true" />
+      <created>1740757401394</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1740757401394</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update README">
+      <option name="closed" value="true" />
+      <created>1740757716328</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1740757716328</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update README">
+      <option name="closed" value="true" />
+      <created>1740757922557</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1740757922557</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main_pany2" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/main_pany2" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update prepare_rat_city_benchmark_data.py to customize the columns in output file" />
+    <MESSAGE value="update prepare_rat_city_benchmark_data.py to customize the columns in output file, remove duplicated files. update annotation_yolo_with_gt_mapping.txt" />
+    <MESSAGE value="update rat city data organization" />
+    <MESSAGE value="update README" />
+    <option name="LAST_COMMIT_MESSAGE" value="update README" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
