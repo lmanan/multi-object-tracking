@@ -21,3 +21,11 @@ conf confidence of the detection inference given by the yolo model
 gt_id since this file is inference of location with same video of ground true, this indicates the id of corresponding object in ground true  
 previous_gt_id previous id for the gt_id based on ground true (annotation.txt)
 previous_yolo_id id of same object in previous frame, 0 if no previous existence. Inferred based on ground true.  
+
+
+
+annotation_yolo_with_gt_mapping_motile.csv
+header: id frame y x prev_id
+note: output of script motile applied to annotation_yolo_with_gt_mapping.txt
+python ../src/infer.py --yaml_configs_file_name rat_city_raw.yaml
+

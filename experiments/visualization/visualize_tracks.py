@@ -9,6 +9,7 @@ from tqdm import tqdm
 import numpy as np
 from yaml import load, Loader
 from typing import Literal
+import cv2
 
 
 def visualize_tracks(
@@ -17,14 +18,56 @@ def visualize_tracks(
     gt_detections_csv_file_name: str,
     ilp_csv_file_name: str,
     visualize_which: Literal["gt", "predicted"] = "predicted",
+    scaling_x: float = 0.5,
+    scaling_y: float = 1.0,
 ):
+    """visualize_tracks.
+
+    This function enables visualizing tracks generated from running the
+    `../src/infer.py` script.
+    It can also visualize the ground truth tracks.
+    Parameters
+    ----------
+    im_dir_name : str | None
+        im_dir_name is the directory containing all the '*.jpg' images.
+        This is optional.
+        Please make sure that the image names are zero-padded.
+    gt_segmentation_dir_name : str | None
+        gt_segmentation_dir_name is the directory containing tif instance masks for
+        the images above. This is optional.
+        The name of the files should be zero-padded.
+    gt_detections_csv_file_name : str
+        gt_detections_csv_file_name is the csv file name containing the ground
+        truth detections.
+        The columns should be in the order of id_, t, y, x and p_id.
+    ilp_csv_file_name : str
+        ilp_csv_file_name is the name of the csv file containing the ILP
+        solution.
+        This file has four columns. id at time t, t, id at time t+1 and t+1.
+    visualize_which : Literal["gt", "predicted"]
+        visualize_which is a string that can be either "gt" or "predicted".
+        Setting it to "gt" will visualize the ground truth tracks.
+        Setting it to "predicted" will visualize the predicted tracks.
+    scaling_x : float
+        scaling_x is the scaling factor to be applied to the x coordinate of
+        the point data. (In case the data is normalized to be between 0 and
+        1).
+        x_coordinate_correct =  x_coordinate * width of image * scaling_x
+    scaling_y : int
+        scaling_y is the scaling factor to be applied to the y coordinate of
+        the point data. (In case the data is normalized to be between 0 and 1).
+        y_coordinate_correct =  y_coordinate * height of image * scaling_y
+    """
 
     if im_dir_name is not None:
-        im_file_names = sorted(glob(im_dir_name + "/*.tif"))
+        im_file_names = sorted(glob(im_dir_name + "/*.jpg"))
+
         im = []
         for im_file_name in tqdm(im_file_names):
-            im.append(tifffile.imread(im_file_name))
+            im.append(cv2.imread(im_file_name))
         im = np.asarray(im)
+        print(f"Images have shape {im.shape}.")
+        T, H, W, C = im.shape
 
     if gt_segmentation_dir_name is not None:
         gt_segmentation_file_names = sorted(glob(gt_segmentation_dir_name + "/*.tif"))
@@ -34,6 +77,11 @@ def visualize_tracks(
         gt_segmentation = np.asarray(gt_segmentation)
 
     gt_track_data = np.loadtxt(gt_detections_csv_file_name, delimiter=" ")
+    gt_track_data[:, 2] *= H
+    gt_track_data[:, 3] *= W
+    gt_track_data[:, 2] *= scaling_y
+    gt_track_data[:, 3] *= scaling_x
+
     gt_id_time_dictionary = {}
 
     gt_graph = nx.DiGraph()
@@ -72,7 +120,7 @@ def visualize_tracks(
                 segmentation=None,
                 time_attr="time",
                 pos_attr="pos",
-                ndim=2,
+                ndim=3,
             )
         tracks_viewer = TracksViewer(viewer=viewer)
         tracks_viewer.update_tracks(tracks=solution_tracks, name="tracks")
@@ -105,10 +153,13 @@ def visualize_tracks(
                 segmentation=None,
                 time_attr="time",
                 pos_attr="pos",
-                ndim=2,
+                ndim=3,
             )
         tracks_viewer = TracksViewer(viewer=viewer)
         tracks_viewer.update_tracks(tracks=solution_tracks, name="tracks")
+        for layer in tracks_viewer.viewer.layers:
+            print(layer.name)
+
         napari.run()
 
 
@@ -130,13 +181,17 @@ if __name__ == "__main__":
     gt_detections_csv_file_name = args["gt_detections_csv_file_name"]
     ilp_csv_file_name = args["ilp_csv_file_name"]
     visualize_which = args["visualize_which"]
+    scaling_x = args["scaling_x"]
+    scaling_y = args["scaling_y"]
 
     visualize_tracks(
-        im_dir_name,
-        gt_segmentation_dir_name,
-        gt_detections_csv_file_name,
-        ilp_csv_file_name,
-        visualize_which,
+        im_dir_name=im_dir_name,
+        gt_segmentation_dir_name=gt_segmentation_dir_name,
+        gt_detections_csv_file_name=gt_detections_csv_file_name,
+        ilp_csv_file_name=ilp_csv_file_name,
+        visualize_which=visualize_which,
+        scaling_x=scaling_x,
+        scaling_y=scaling_y,
     )
 
     # python visualize_tracks.py - -yaml_configs_file_name visualize_configs.yaml
