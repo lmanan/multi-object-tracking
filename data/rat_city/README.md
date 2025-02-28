@@ -1,7 +1,7 @@
 ### Summary
-This folder has annotation files for the rat city experiments
+This folder has annotation files for the rat city experiments, subfolder YOLO11x and YOLO12x contains model predictions by YOLO11x and YOLO12x model respectively.
 ### Explanation of each file
-original videos are saved a series of frames in nrs:\karpova\forCedric\gnn\rat_city\cohort2_exp1\datasets\images\train  
+original videos are saved a series of frames in `nrs:\karpova\forCedric\gnn\rat_city\cohort2_exp1\datasets\images\train`  
 
 annotation.txt contains ground true annotation for each object's location  
 header: id frame_id y x previous_id  
@@ -21,3 +21,5 @@ conf confidence of the detection inference given by the yolo model
 gt_id since this file is inference of location with same video of ground true, this indicates the id of corresponding object in ground true  
 previous_gt_id previous id for the gt_id based on ground true (annotation.txt)
 previous_yolo_id id of same object in previous frame, 0 if no previous existence. Inferred based on ground true.  
+
+objects_per_frame_histogram.png overview of number of detections across frames.
