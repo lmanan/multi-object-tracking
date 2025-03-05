@@ -1,4 +1,4 @@
-test_file_name: "../data/rat_city/YOLO12x/annotation_yolo_with_gt_mapping.txt"
+test_file_name: "../data/rat_city_cohort2_exp1/YOLO12x/annotation_yolo_with_gt_mapping.txt"
 num_nearest_neighbours: 3
 max_edge_distance: null
 direction_candidate_graph: "forward"

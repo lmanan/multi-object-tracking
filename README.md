@@ -16,5 +16,5 @@ pip install git+https://github.com/lmanan/traccuracy.git
 ```bash
 conda activate motile-env
 cd experiments
-python ../src/infer.py --yaml_configs_file_name 'rat_city.yaml'
+python ../src/infer.py --yaml_configs_file_name 'rat_city_cohort2_exp1.yaml'
 ```

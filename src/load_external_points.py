@@ -20,7 +20,7 @@ _themes["dark"].font_size = "18pt"
 
 
 # Load Zarr datasets
-csv_path = "../data/rat_city/YOLO11x/annotation_yolo_with_gt_mapping.txt"  # replace with your points file
+csv_path = "../data/rat_city_cohort2_exp1/YOLO11x/annotation_yolo_with_gt_mapping.txt"  # replace with your points file
 dataframe = pd.read_csv(csv_path, sep=" ")
 
 position_columns = ["frame_id", "y", "x"]  # replace with your position columns
