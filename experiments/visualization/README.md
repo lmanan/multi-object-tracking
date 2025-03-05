@@ -7,7 +7,7 @@ conda create -n motile-tracker python=3.10
 conda activate motile-tracker
 conda install -c conda-forge -c funkelab -c gurobi ilpy
 pip install motile-tracker
-pip install opencv-python
+pip install opencv-python-headless
 ```
 
 Then run the `visualize_tracks.py` by running:
