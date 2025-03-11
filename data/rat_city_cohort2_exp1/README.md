@@ -11,6 +11,7 @@ frame_id id of frame, starting from 1
 y, x center of the object, normalized to 0-1 relative to the position in frame
 previous_id id of same object in previous frame, 0 if no previous existence  
 
+Folder YOLO11x and YOLO12x contains model prediction by YOLO11x and YOLO12x  
 `annotation_yolo_with_gt_mapping.txt` contains yolo detection inference on same dataset  
 `header`: id frame_id y x conf gt_id previous_gt_id previous_yolo_id
 note:  
