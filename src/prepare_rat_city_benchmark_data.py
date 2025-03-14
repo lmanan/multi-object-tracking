@@ -75,9 +75,9 @@ def map_yolo_to_gt_ids(tbyolo, tbgt, distance_threshold=50,
 
 
 # main
-annotation_yolo_path = 'E:\\cohort2_exp1_yolo\\annotation_yolo\\rat_city_corhort2_exp1_1vid_YOLOv12x_1000epochs\\annotation_yolo.txt'
-annotation_GT_path = 'E:\\cohort2_exp1_yolo\\datasets\\annotation.txt'
-savepath = 'E:\\cohort2_exp1_yolo\\annotation_yolo\\rat_city_corhort2_exp1_1vid_YOLOv12x_1000epochs'
+annotation_yolo_path = 'E:\\cohort1vs2_exp1_yolo_bbox\\annotation_yolo\\rat_city_cohort1vs2_exp1_1vid_YOLOv11x_1000epochs\\annotation_yolo.txt'
+annotation_GT_path = 'E:\\cohort1vs2_exp1_yolo_bbox\\datasets\\annotation-gt.txt'
+savepath = 'E:\\cohort1vs2_exp1_yolo_bbox\\annotation_yolo\\rat_city_cohort1vs2_exp1_1vid_YOLOv11x_1000epochs'
 
 # Load ground truth annotations
 tbgt = pd.read_csv(annotation_GT_path, sep=' ')
